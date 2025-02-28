@@ -27,7 +27,7 @@ export default function Asidebar({ isOpen }) {
   return (
     <aside
       className={`fixed border left-0 w-48 h-screen bg-white shadow-md z-50 transition-transform duration-300 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100
-      ${isOpen ? 'translate-x-0 top-[65px]' : '-translate-x-full top-[74px]'} md:translate-x-0 `}
+      ${isOpen ? 'translate-x-0 top-[85px]' : '-translate-x-full top-[74px]'} md:translate-x-0 `}
     >
       {/* Sidebar Content */}
       <nav className="flex flex-col p-4">
