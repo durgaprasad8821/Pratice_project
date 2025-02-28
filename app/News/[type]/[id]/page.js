@@ -1,6 +1,6 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { FaThumbsUp, FaRegThumbsUp, FaShare } from "react-icons/fa";
 import newsData from "@/app/Data/News";
 import Loader from "@/app/Components/Loder";

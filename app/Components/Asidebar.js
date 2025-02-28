@@ -9,7 +9,7 @@ export default function Asidebar({ isOpen }) {
   const menuItems = [
     { icon: FiHome, label: 'Home', href: '/' },
     { icon: FiBriefcase, label: 'Jobs', href: '/Job' },
-    { icon: PiHandshakeFill, label: 'Shelter', href: 'Shelter' },
+    { icon: PiHandshakeFill, label: 'Shelter', href: '/Shelter' },
     { icon: FaMoneyBillWave, label: 'Bizz', href: '/bizz' },
   ];
 
