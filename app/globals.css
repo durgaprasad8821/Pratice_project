@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+::-webkit-scrollbar {
+  width: 4px; /* Reduce scrollbar width */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: whitesmoke; /* Thumb color */
+  border-radius: 6px; /* Rounded edges */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f3f4f6; /* Track color */
+}
+
+aside {
+  position: fixed;
+  top: 74px;
+  left: 0;
+  width: 12rem; /* Adjust as needed */
+  height: 100vh;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* On small screens, sidebar should overlay */
+ 
+ 
+
+ 
