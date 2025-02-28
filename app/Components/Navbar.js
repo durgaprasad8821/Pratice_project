@@ -17,9 +17,11 @@ export default function Navbar({setIsSidebarOpen , value}) {
             <div className="text-xl font-bold text-blue-600">Podiem</div>
           </div>
           </div>
+          <a href="https://www.podiemapp.com/" target="_blank" rel="noopener noreferrer">
           <button className="md:hidden bg-blue-600 text-white px-4 py-2 rounded-lg">
             Get App
           </button>
+          </a>
         </div>
         
         <div className="w-full md:w-1/2 flex items-center mt-2 md:mt-0">
@@ -31,9 +33,11 @@ export default function Navbar({setIsSidebarOpen , value}) {
             />
             <FiSearch className="absolute left-3 top-3 text-gray-500" />
           </div>
+          <a href="https://www.podiemapp.com/" target="_blank" rel="noopener noreferrer">
           <button className="hidden md:block bg-blue-600 text-white px-4 py-2 ml-4 rounded-lg">
             Get App
           </button>
+          </a>
         </div>
       </div>
     </nav>

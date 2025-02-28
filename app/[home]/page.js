@@ -1,22 +1,22 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaThumbsUp, FaRegThumbsUp, FaShare } from "react-icons/fa";
-import newsData from "@/app/Data/News";
-import Loader from "@/app/Components/Loder";
+import { Homedata } from "../Data/Home";
+
+import Loader from "../Components/Loder";
 
 
 
 export default function NewsDetail() {
   const router = useRouter();
-  const { type, id } = useParams();
-   const [loader , setLoder] = useState(false);
-    useEffect(() => {setLoder(true)} , [])
-    setTimeout(() => {setLoder(false)} , 2000)
+  const { home } = useParams();
+  const [loader , setLoader] = useState(false);
   
-  const newsItem = newsData.find((item) => item.id === id);
-
+  const newsItem = Homedata.find((item) => item.source.id === Number(home));
+    useEffect (()=> { setLoader(true)} , [])
   if (!newsItem) {
+    setLoader(false)
     return <p className="text-center text-red-500">News not found!</p>;
   }
 
@@ -53,14 +53,18 @@ export default function NewsDetail() {
     }
   };
 
+  setTimeout( () => {setLoader(false)} , 1000);
+
   return (
     <>
-    { loader ? <Loader/> : 
+    
+       { loader ? <Loader/> :
+   
     <>
     <div className="max-w-3xl mx-auto pt-4 relative   md:left-[-40px]">
       {/* ✅ Back Button to return to Category Page */}
       <button
-        onClick={() => router.push(`/News/${type}`)}
+        onClick={() => router.push(`/`)}
         className="bg-gray-300 px-4 py-2 rounded mb-4"
       >
         Back
@@ -68,7 +72,7 @@ export default function NewsDetail() {
     </div>
     <div className="max-w-4xl mx-auto p-4">
       {/* Full-width Image */}
-      <img src={newsItem.image} alt={newsItem.title} className="w-full h-72 object-cover rounded-lg mb-4" />
+      <img src={newsItem.urlToImage} alt={newsItem.title} className="w-full h-72 object-cover rounded-lg mb-4" />
 
       {/* News Header Section */}
       <div className="flex justify-between items-center mb-4">
@@ -130,8 +134,8 @@ export default function NewsDetail() {
         )}
       </div>
     </div>
-    </> 
-}
+    </>
+       }
     </>
   );
 }

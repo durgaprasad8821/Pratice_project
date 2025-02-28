@@ -2,21 +2,26 @@
 import { useParams,useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {houseListings} from '../../Data/ShelterPost.js'
+import Loader from "@/app/Components/Loder.js";
 
 
 
 const HouseDetails = () => {
   const router = useRouter();
   const { id } = useParams();
+  const [loader , setLoder] = useState(false);
+  useEffect(() => {setLoder(true)} , [])
+  setTimeout(() => {setLoder(false)} , 2000)
   const house = houseListings.find((house) => house.id === Number(id));
   const similar = houseListings.slice(1,5);
-  console.log(similar);
 
   if (!house) {
     return <div className="p-4 text-center text-red-500">House not found</div>;
   }
 
   return (
+    <>
+    { loader ? <Loader/> :  
     <>
     <div className="max-w-3xl mx-auto pt-4 relative   md:left-[-40px]">
     {/* ✅ Back Button to return to Category Page */}
@@ -63,6 +68,8 @@ const HouseDetails = () => {
         </div>
       </div>
     </div>
+    </>
+}
     </>
   );
 };

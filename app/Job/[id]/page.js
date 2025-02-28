@@ -2,6 +2,7 @@
 import { useParams,useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {jobListings} from '../../Data/JobPost';
+import Loader from "@/app/Components/Loder";
 
 
  
@@ -9,14 +10,21 @@ import {jobListings} from '../../Data/JobPost';
 const JobDetails = () => {
   const router = useRouter();
   const { id } = useParams();
+  const [loader , setLoder] = useState(false);
+  useEffect(() => {setLoder(true)} , [])
+  setTimeout(() => {setLoder(false)} , 2000)
   const job =  jobListings.find((job) => job.id === Number(id));
     
   if (!job) {
     return <div className="p-4">Job not found</div>;
   }
 
+
   return (
     <>
+    {
+      loader ? <Loader/> : 
+      <>
     <div className="max-w-3xl mx-auto pt-4 relative   md:left-[-40px]">
     {/* ✅ Back Button to return to Category Page */}
     <button
@@ -80,6 +88,8 @@ const JobDetails = () => {
         </button>
       </div>
     </div>
+    </>
+}
     </>
   );
 };
